@@ -1,0 +1,113 @@
+{%extends 'web/dbase.html'%} {%load static%} {%block headers%} {% endblock %}
+
+
+<body>
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!--================================-->
+        <!-- Main Wrapper Start -->
+        <!--================================-->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+
+            <!--/ Breadcrumb End -->
+
+
+            <!--Container fluid-->
+            <br><br>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                    {% endfor %}
+            </ul>
+            {% endif %}
+            <div id="content-wrapper">
+                <div class="container-fluid upload-details">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-title">
+                                <h6>Present - Notification</h6>
+                                {%if notify%}
+                                <p>{{notify.content}}</p>
+                                {%endif%}
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="imgplace"></div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="osahan-form">
+                                <form method='post' action="#">
+                                    {% csrf_token %}
+                                <div class="row">
+                                    
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label for="e2">Content</label>
+                                            {{form.content}}</div>
+                                    </div>
+                                </div>
+                                <button style="background-color:#ac0e41	; color: white;" class="btn btn-outline-primary">Submit</button>
+                                                            
+                                </form>
+                                <hr>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.container-fluid -->
+
+
+                    <div class="row row-xs clearfix">
+                        <!--================================-->
+
+                        <div class="osahan-area text-center mt-3">
+                            <a href="">
+                               </a>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Main Wrapper End -->
+            </div>
+            <!--/ Page Inner End -->
+            <br><br><br><br><br><br>
+            <!--================================-->
+            <!-- Page Footer Start -->
+            <!--================================-->
+            <footer class="page-footer">
+
+            </footer>
+            <!--/ Page Footer End -->
+        </div>
+        <!--/ Page Content End  -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,144 @@
+{%extends 'web/sbase.html'%} {%load static%} {%block headers%} {% load mathfilters %}
+
+<!-- Favicon -->
+{% endblock %}
+
+
+
+<body>
+
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+         <!-- Main Wrapper -->
+         <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+            <div class="pageheader pd-t-25 pd-b-35">
+
+
+            </div>
+            <!--/ Breadcrumb End -->
+            <!-- Action Table Start -->
+            <!--================================-->
+            <div class="col-md-12 col-lg-12">
+                <div class="card mg-b-20">
+                    <div class="card-header">
+                        <h4 class="card-header-title">
+                            My Activities
+                        </h4>
+
+                        <div class="card-header-btn">
+                            <a href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse7" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                            <a href="#" data-toggle="refresh" class="btn card-refresh"><i
+                                    class="ion-android-refresh"></i></a>
+                            <a href="#" data-toggle="expand" class="btn card-expand"><i
+                                    class="ion-android-expand"></i></a>
+                            <a href="#" data-toggle="remove" class="btn card-remove"><i
+                                    class="ion-android-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body pd-0 collapse show" id="collapse7">
+                        <table class="table table-separated table-responsive-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Location</th>
+                                    <th>Price</th>
+                                    <th>Service type</th>
+                                    <th>Render tag</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {%for activity in object_list%}
+                             
+                                <tr>
+                                    {% with ofset=page_obj.number|sub:1|mul:10 %}
+                                    <th scope="row">{{ forloop.counter|add:ofset }}</th>
+                                    {% endwith %}
+                                       <td>{{activity.name}}</td>
+                                    <td>{{activity.loc}}</td>
+                                    <td>{{activity.price}}</td>
+                                    <td>{{activity.service}}</td>
+                                    <td>{{activity.render_tag}}</td>
+                              
+                                </tr>
+                                {%endfor%}
+                          
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center pagination-sm mb-0">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="/tagsview?page=1">&laquo; first</a>
+                        </li>
+                        {% endif %} {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="/tagsview?page={{ page_obj.previous_page_number }}">previous</a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="/tagsview?page={{ page_obj.next_page_number }}">next</a>
+                        </li>{% endif %} {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="/tagsview?page={{ page_obj.paginator.num_pages }}">last
+                                &raquo;</a>
+                        </li>{% endif %}
+                    </ul>
+                </nav>
+
+            </div>
+            <!--/ Action Table End -->
+
+            <div class="row row-xs clearfix">
+
+            </div>
+        </div>
+        <!--/ Main Wrapper End -->
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+
+    <footer class="page-footer">
+        <div class="pd-t-4 pd-b-0 pd-x-20">
+            <div class="tx-10 tx-uppercase">
+                <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+
+</body>
+
+{% endblock %}

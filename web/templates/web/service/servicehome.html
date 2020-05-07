@@ -1,0 +1,90 @@
+{%extends 'web/sbase.html'%} {%load static%} {%block headers%} {% load mathfilters %}
+
+<!-- Favicon -->
+{% endblock %}
+
+
+
+<body>
+
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+            <div class="pageheader pd-t-25 pd-b-35">
+
+
+            </div>
+            <!--/ Breadcrumb End -->
+            <!-- Checkbox Validation Start -->
+            <!--================================-->
+            <div class="col-md-12 col-lg-12">
+                <div class="card mg-b-20">
+                    <div class="card-header">
+                        <h1 class="card-header-title">
+                            Notifications
+                        </h1>
+                        <div class="card-header-btn">
+                            <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse3" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                            <a href="" data-toggle="refresh" class="btn card-refresh"><i
+                                    class="ion-android-refresh"></i></a>
+                            <a href="" data-toggle="expand" class="btn card-expand"><i
+                                    class="ion-android-expand"></i></a>
+                            <a href="" data-toggle="remove" class="btn card-remove"><i
+                                    class="ion-android-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body collapse show" id="collapse3">
+                    {%if notify%}
+                        <h3>{{notify.content}}</h3>
+                        {%endif%}
+                    </div>
+                </div>
+                <!--/ Checkbox Validation End -->
+                <div class="row row-xs clearfix">
+
+                </div>
+            </div>
+            <!--/ Main Wrapper End -->
+        </div>
+        <!--/ Page Inner End -->
+        <!--================================-->
+        <!-- Page Footer Start -->
+        <!--================================-->
+
+        <footer class="page-footer">
+            <div class="pd-t-4 pd-b-0 pd-x-20">
+                <div class="tx-10 tx-uppercase">
+                    <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+                </div>
+            </div>
+        </footer>
+        <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+
+</body>
+
+{% endblock %}

@@ -1,0 +1,209 @@
+{%extends 'web/dbase.html'%} {%load static%} {%block headers%} {% endblock %}
+
+<body>
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!--================================-->
+        <!-- Main Wrapper Start -->
+        <!--================================-->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+
+            <!--/ Breadcrumb End -->
+
+
+            <!--Container fluid-->
+            <br><br>
+            <div id="content-wrapper">
+                <div class="container-fluid upload-details">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-title">
+                                <h6>Edit Service Executive</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="imgplace"></div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="osahan-form">
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+                                             <!-- Top Label Layout Start -->
+                                        <!--================================-->
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="card mg-b-20">
+                                                <div class="card-header">
+                                                    <h4 class="card-header-title">
+                                                        Update the Password
+                                                    </h4>
+
+                                                    <div class="card-header-btn">
+                                                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse1" aria-expanded="true"><i
+                                                                class="ion-ios-arrow-down"></i></a>
+                                                        <a href="" data-toggle="refresh" class="btn card-refresh"><i
+                                                                class="ion-android-refresh"></i></a>
+                                                        <a href="" data-toggle="expand" class="btn card-expand"><i
+                                                                class="ion-android-expand"></i></a>
+                                                        <a href="" data-toggle="remove" class="btn card-remove"><i
+                                                                class="ion-android-close"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body collapse show" id="collapse1">
+
+                                                    <form action="{% url 'passupdate' id=user.id %}" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="form-layout form-layout-1">
+                                                            <div class="row mg-b-25">
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label active">New Password<span
+                                                                                class="tx-danger">*</span></label>
+                                                                                {{form1.password}} </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label active">Confirm
+                                                                            Password<span class="tx-danger">*</span></label>
+                                                                      {{form1.confirm_password}}</div>
+                                                                </div>
+                                                            </div>
+                                                            <!-- row -->
+                                                            <div class="form-layout-footer">
+                                                                <button class="btn btn-custom-primary">Update</button>
+
+                                                            </div>
+                                                            <!-- form-layout-footer -->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Top Label Layout End -->
+
+                                        <!--================================-->
+                                        <!-- Top Label Layout Start -->
+                                        <!--================================-->
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="card mg-b-20">
+                                                <div class="card-header">
+                                                    <h4 class="card-header-title">
+                                                        Update Phone & Percentage
+                                                    </h4>
+
+                                                    <div class="card-header-btn">
+                                                        <a href="" data-toggle="collapse" class="btn card-collapse" data-target="#collapse1" aria-expanded="true"><i
+                                                                class="ion-ios-arrow-down"></i></a>
+                                                        <a href="" data-toggle="refresh" class="btn card-refresh"><i
+                                                                class="ion-android-refresh"></i></a>
+                                                        <a href="" data-toggle="expand" class="btn card-expand"><i
+                                                                class="ion-android-expand"></i></a>
+                                                        <a href="" data-toggle="remove" class="btn card-remove"><i
+                                                                class="ion-android-close"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body collapse show" id="collapse1">
+                                                    
+                                                    <form action="{% url 'percentageupdate' id=user.id %}" method="post">
+                                                        {% csrf_token %}
+                                                        <div class="form-layout form-layout-1">
+                                                            <div class="row mg-b-25">
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label active">Percentage
+                                                                            <span class="tx-danger">*</span></label>
+                                                                   {{form2.percentage}} </div>
+                                                                </div>
+                                                                <div class="col-lg-4">
+                                                                    <div class="form-group">
+                                                                        <label class="form-control-label active">Phone
+                                                                            Number <span class="tx-danger">*</span></label>
+                                                                        {{form2.phonenumber}}</div>
+                                                                </div>
+                                                                <!-- col-4 -->
+
+                                                            
+                                                            </div>
+                                                            <!-- row -->
+                                                            <div class="form-layout-footer">
+                                                                <button class="btn btn-custom-primary">Update</button>
+
+                                                            </div>
+                                                            <!-- form-layout-footer -->
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--/ Top Label Layout End -->
+
+                                   
+
+                                    </div>
+
+
+                                    </form>
+                                    <hr>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.container-fluid -->
+
+
+                        <div class="row row-xs clearfix">
+
+
+                        </div>
+                    </div>
+                    <!--/ Main Wrapper End -->
+                </div>
+
+                <br><br><br><br><br><br><br>
+                <!--/ Page Inner End -->
+                <!--================================-->
+                <!-- Page Footer Start -->
+                <!--================================-->
+                <footer class="page-footer">
+                    <div class="pd-t-4 pd-b-0 pd-x-20">
+                        <div class="tx-10 tx-uppercase">
+                            <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By
+                                <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+                        </div>
+                    </div>
+                </footer>
+                <!--/ Page Footer End -->
+            </div>
+            <!--/ Page Content End  -->
+        </div>
+        <!--/ Page Container End -->
+        <!--================================-->
+        <!-- Scroll To Top Start-->
+        <!--================================-->
+        <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+        <!--/ Scroll To Top End -->
+        <!--================================-->
+
+        <!--================================-->
+
+        <!--================================-->
+        <!-- Footer Script -->
+        <!--================================-->
+
+        {%endblock%} {%block script%}
+
+
+</body>
+{% endblock %}

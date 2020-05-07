@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    {%block headers%} {% endblock %}
+    <!-- Main CSS -->
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/bootstrap/css/bootstrap.min.css" %} />
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/flag-icon/flag-icon.min.css" %} />
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/simple-line-icons/css/simple-line-icons.css" %}>
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/ionicons/css/ionicons.css" %}>
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/toastr/toastr.min.css" %}>
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/chartist/chartist.css" %}>
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/plugins/apex-chart/apexcharts.css" %}>
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/css/app.min.css" %} />
+    <link type="text/css" rel="stylesheet" href={% static "web/assets/css/style.min.css" %} />
+
+
+
+
+</head>
+<!--================================-->
+
+<!--================================-->
+
+{% block body %} {% endblock %}
+<script src={% static "web/assets/plugins/jquery/jquery.min.js" %}></script>
+<script src={% static "web/assets/plugins/jquery-ui/jquery-ui.js" %}></script>
+<script src={% static "web/assets/plugins/popper/popper.js" %}></script>
+<script src={% static "web/assets/plugins/feather-icon/feather.min.js" %}></script>
+<script src={% static "web/assets/plugins/bootstrap/js/bootstrap.min.js" %}></script>
+<script src={% static "web/assets/plugins/pace/pace.min.js" %}></script>
+
+<script src={% static "web/assets/plugins/dropzone/dropzone.js" %}></script>
+<script src={% static "web/assets/plugins/simpler-sidebar/jquery.simpler-sidebar.min.js" %}></script>
+<script src={% static "web/assets/js/jquery.slimscroll.min.js" %}></script>
+<script src={% static "web/assets/js/highlight.min.js" %}></script>
+<script src={% static "web/assets/js/app.js" %}></script>
+<script src={% static "web/assets/js/custom.js" %}></script>
+
+
+{%block script%} {% endblock %}
+
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword" content="">
+    <meta name="author" content="" />
+    <!-- Page Title -->
+    <title>Nav Media Dashboard | Admin</title>
+    <!-- Main CSS -->
+    <link type="text/css" rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/plugins/flag-icon/flag-icon.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/plugins/simple-line-icons/css/simple-line-icons.css">
+    <link type="text/css" rel="stylesheet" href="assets/plugins/ionicons/css/ionicons.css">
+    <link type="text/css" rel="stylesheet" href="assets/plugins/toastr/toastr.min.css">
+    <link type="text/css" rel="stylesheet" href="assets/plugins/chartist/chartist.css">
+    <link type="text/css" rel="stylesheet" href="assets/plugins/apex-chart/apexcharts.css">
+    <link type="text/css" rel="stylesheet" href="assets/css/app.min.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/style.min.css" />
+
+    <link href="css/videoplayer.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn"t work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+
+</head>
+
+<body>
+    <!--================================-->
+    <!-- Page Container Start -->
+    <!--================================-->
+    <div class="page-container">
+        <!--================================-->
+        <!-- Page Sidebar Start -->
+        <!--================================-->
+        <div class="page-sidebar">
+            <div class="logo">
+                <a class="logo-img" href="/dashboard">
+                    <img class="desktop-logo" src="assets/images/logo.png" alt="">
+                    <img class="small-logo" src="assets/images/small-logo.png" alt="">
+                </a>
+                <i class="ion-ios-close-empty" id="sidebar-toggle-button-close"></i>
+            </div>
+            <!--================================-->
+            <!--================================-->
+            <!-- Sidebar Menu Start -->
+            <!--================================-->
+            <div class="page-sidebar-inner">
+                <div class="page-sidebar-menu">
+                    <ul class="accordion-menu">
+                        <li class="open active">
+                            <a href="/dashboard"><i data-feather="wifi"></i>
+                                <span>Live</span><i class="accordion-icon"></i></a>
+
+                        </li>
+                        <li>
+                            <a href=""><i data-feather="mail"></i>
+                                <span>Messages</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <!--  <li>
+                                    <a href="/contactlist">
+                                        <i class="far fa-address-book"></i> Contact
+                                    </a>
+                                </li>-->
+                                <li>
+                                    <a href="/feedbacklist">
+                                        <i class="fas fa-comment-dollar"></i> Feedback
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href=""><i color="indigo" data-feather="command"></i>
+                                <span>Service Executive</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/addscat">
+                                        <i class="fas fa-user-plus"></i> Add Service Executive</a>
+                                </li>
+                                <li>
+                                    <a href="/viewscat">
+                                        <i class="far fa-eye"></i> View Service Executive</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <br>
+
+                        <li>
+                            <a href=""><i color="red" data-feather="video"></i>
+                                <span>Connect Executive</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/addconnect">
+                                        <i class="fas fa-user-plus"></i> Add Connect Executive</a>
+                                </li>
+                                <li>
+                                    <a href="/viewconnect">
+                                        <i class="far fa-eye"></i> View Connect Executive</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href=""><i color="red" data-feather="user"></i>
+                                <span>User Connect</span><i class="accordion-icon fa fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/dataconnectvid">
+                                        <i class="fas fa-video"></i> Connect video</a>
+                                </li>
+                                <li>
+                                    <a href="/dataconnectpic">
+                                        <i class="far fa-image"></i> Connect photo</a>
+                                </li>
+
+
+                            </ul>
+
+                        </li>
+                        <li>
+                            <a href=""><i color="orange" data-feather="user"></i>
+                                <span>User Advert</span><i class="accordion-icon fa fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="/dataadvertvid"><i class="fas fa-video"></i>
+                                        Advert video</a></li>
+                                <li>
+                                    <a href="/dataadvertpic">
+                                        <i class="far fa-image"></i> Advert Banner</a>
+                                </li>
+
+                            </ul>
+
+                        </li>
+
+
+
+                        <li>
+                            <a href="/premiumview"><i color="blue" data-feather="user"></i>
+                                <span>Premium user</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/premiumview">
+                                        <i class="far fa-user"></i> Users List</a>
+                                </li>
+                                <li>
+                                    <a href="/pvapprovals">
+                                        <i class="far fa-thumbs-up"></i> Video Approvals</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/userview"><i color="green" data-feather="user"></i>
+                                <span>User info</span><i class="accordion-icon"></i></a>
+
+
+                        </li>
+                        <br>
+
+                        <li>
+                            <a href="#"><i data-feather="upload"></i>
+                                <span>Upload Video</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/uploadvideo">
+                                        <i class="fas fa-film"></i> Add Video</a>
+                                </li>
+                                <li>
+                                    <a href="/approveview">
+                                        <i class="far fa-thumbs-up"></i> Activate Videos</a>
+                                </li>
+                                <li><a href="/uploadview"><i class="far fa-eye"></i>
+                                        Active Video list</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#"><i data-feather="airplay"></i>
+                                <span>Video Advert</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="/addvideoadvert"><i class="fas fa-ad"></i> Add Video Advert</a></li>
+                                <li><a href="/viewvideoadvert"><i class="far fa-eye"></i> View Video Advert</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href=""><i data-feather="image"></i>
+                                <span>Banner Advert</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/addbanneradvert">
+                                        <i class="fas fa-ad"></i> Add Banner Advert</a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+
+
+
+
+                        <li>
+                            <a href=""><i data-feather="monitor"></i>
+                                <span>Channels</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="/addchannels"><i class="fas fa-th-large"></i>
+                                        Add Channels</a></li>
+                                <li><a href="/viewchannels"><i class="far fa-eye"></i>
+                                        View Channels</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <li>
+                            <a href=""><i data-feather="grid"></i>
+                                <span>Categories</span><i class="accordion-icon fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="/addcategories"><i class="fas fa-bars"></i>
+                                        Add Categories</a></li>
+                                <li><a href="/viewcategories"><i class="far fa-eye"></i>
+                                        View Categories</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href=""><i data-feather="list"></i>
+                                <span>Sub Categories</span><i class="accordion-icon fa fa fa-angle-left"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="/addsubc"><i class="fas fa-list"></i>
+                                        Add Sub Categories</a></li>
+                                <li><a href="/viewsubc"><i class="far fa-eye"></i>
+                                        View Sub Categories</a></li>
+
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/ Sidebar Menu End -->
+            <!--================================-->
+            <!-- Sidebar Footer Start -->
+            <!--================================-->
+
+            <!--/ Sidebar Footer End -->
+        </div>
+        <!--/ Page Sidebar End -->
+        <!--================================-->
+        <!-- Page Content Start -->
+        <!--================================-->
+        <div class="page-content">
+            <!--================================-->
+            <!-- Page Header Start -->
+            <!--================================-->
+            <div class="page-header">
+                <div class="search-form">
+                    <form action="#" method="GET">
+                        <div class="input-group">
+                            <input class="form-control search-input" name="search" placeholder="Type something..." type="text" />
+                            <span class="input-group-btn">
+                                <span id="close-search"><i class="ion-ios-close-empty"></i></span>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+                <!--================================-->
+                <!-- Page Header  Start -->
+                <!--================================-->
+                <nav class="navbar navbar-expand-lg">
+                    <ul class="list-inline list-unstyled mg-r-20">
+                        <!-- Mobile Toggle and Logo -->
+                        <li class="list-inline-item align-text-top"><a class="hidden-md hidden-lg" href="#" id="sidebar-toggle-button"><i class="ion-navicon tx-20"></i></a></li>
+                        <!-- PC Toggle and Logo -->
+                        <li class="list-inline-item align-text-top"><a class="hidden-xs hidden-sm" href="#" id="collapsed-sidebar-toggle-button"><i class="ion-navicon tx-20"></i></a></li>
+                    </ul>
+                    <!--================================-->
+                    <!-- Mega Menu Start -->
+                    <!--================================-->
+                    <div class="collapse navbar-collapse">
+
+                    </div>
+                    <!--/ Mega Menu End-->
+                    <!--/ Brand and Logo End -->
+                    <!--================================-->
+                    <!-- Header Right Start -->
+                    <!--================================-->
+                    <div class="header-right pull-right">
+                        <ul class="list-inline justify-content-end">
+                            <li class="list-inline-item align-middle"><a href="#" id="search-button"><i
+                                        class="ion-ios-search-strong tx-20"></i></a></li>
+                            <!--================================-->
+                            <!-- Languages Dropdown Start -->
+                            <!--================================-->
+                            <li class="list-inline-item align-middle dropdown hidden-xs">
+                                <a href="" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="flag-icon flag-icon-us"></i>
+                                </a>
+                                <ul class="dropdown-menu languages-dropdown shadow-2">
+                                    <li>
+                                        <a href="" data-lang="en"><i
+                                                class="flag-icon flag-icon-us mr-2"></i><span>English-US</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-lang="es"><i
+                                                class="flag-icon flag-icon-es mr-2"></i><span>Spanish</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-lang="fr"><i
+                                                class="flag-icon flag-icon-fr mr-2"></i><span>French</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-lang="gr"><i
+                                                class="flag-icon flag-icon-de mr-2"></i><span>German</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-lang="ru"><i
+                                                class="flag-icon flag-icon-ru mr-2"></i><span>Russian</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="" data-lang="ru"><i
+                                                class="flag-icon flag-icon-gb mr-2"></i><span>English-UK</span></a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!--/ Languages Dropdown End -->
+                            <!--================================-->
+
+                            <!--================================-->
+                            <!-- Profile Dropdown Start -->
+                            <!--================================-->
+                            <li class="list-inline-item dropdown">
+                                <a href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span
+                                        class="select-profile">Admin</span><img
+                                        src="assets/images/avatar-placeholder.png"" class=" img-fluid wd-35 ht-35
+                                        rounded-circle" alt=""></a>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-profile shadow-2">
+                                    <div class="user-profile-area">
+                                        <div class="user-profile-heading">
+                                            <div class="profile-thumbnail">
+                                                <img src="https://via.placeholder.com/100x100" class="img-fluid wd-35 ht-35 rounded-circle" alt="">
+                                            </div>
+                                            <div class="profile-text">
+                                                <h6>Nav media</h6>
+
+                                            </div>
+                                        </div>
+                                        <a href="/adminpanel" class="dropdown-item"><i class="icon-settings"
+                                                aria-hidden="true"></i> settings</a>
+                                        <a href="/signin" class="dropdown-item"><i class="icon-power"
+                                                aria-hidden="true"></i> Sign-out</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Profile Dropdown End -->
+                            <!--================================-->
+
+                    </div>
+                    <!--/ Header Right End -->
+                </nav>
+            </div>
+            <!--/ Page Header End -->
+            <!--================================-->
+            <!-- Page Inner Start -->
+            <!--================================-->
+            <div class="page-inner pd-0-force mg-0-force bg-white">
+                <!--================================-->
+                <!-- User Profile Start -->
+                <!--================================-->
+                <div class="row no-gutters">
+                    <div class="col-12">
+                        <div class="card bd-l-0-force bd-t-0-force bd-r-0-force">
+                            <div class="card-body bg-primary pd-y-50">
+                                <div class="row no-gutters">
+                                    <div class="col-md-6 mg-t-20">
+                                        <div class="d-flex align-items-center">
+                                            <div class="mr-3">
+                                                <span class="avatar avatar-lg avatar-online pd-b-20">
+                                                    <img src="https://via.placeholder.com/100x100"
+                                                        class="img-fluid wd-100" alt="">
+                                                </span>
+                                            </div>
+                                            <div class="mg-b-0">
+                                                <h5 class="tx-gray-100 tx-15 mg-b-0">Nav Media</h5>
+                                                <p class="mg-b-10 tx-gray-300">Admin panel</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mg-t-10 mg-l-auto">
+                                        <ul class="list-unstyled tx-gray-100 mb-0">
+                                            <li><i class="ti-target mr-2 font-18"></i> <b>Name </b>: Nav Media</li>
+                                            <li class="mt-2"><i class="ti-headphone-alt mr-2 font-18"></i> <b>phone
+                                                </b>: 04985 297 297</li>
+                                            <li class="mt-2"><i class="ti-email mr-2 font-18"></i> <b>Email </b>: navmediakerala@gmail.com
+                                            </li>
+                                            <li class="mt-2"><i class="ti-map mr-2 font-18"></i> <b>Location</b> : Payyanur, Kerala 670307</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card bd-l-0-force bd-t-0-force bd-r-0-force bd-b-0-force">
+                            <div class="card-body bg-light">
+                                <div class="row no-gutters">
+                                    <div class="col-12">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--user profile end here-->
+
+
+
+                <!--Profile page edit start here-->
+
+                <div class="tab-pane fade show active" id="my-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <div class="card-body">
+                        <form class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-md-12">Full Name</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="full name" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="example-email" class="col-md-12">Email</label>
+                                <div class="col-md-12">
+                                    <input type="email" placeholder="user@admin.com" class="form-control" name="example-email" id="example-email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Password</label>
+                                <div class="col-md-12">
+                                    <input type="password" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Password again</label>
+                                <div class="col-md-12">
+                                    <input type="password" value="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Phone No</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="123 456 7890" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-12">Address</label>
+                                <div class="col-md-12">
+                                    <input type="text" placeholder="Address here" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <button class="btn btn-custom-primary">Update Profile</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!---Profile page edit end here-->
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--/ User Profile End -->
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+    <footer class="page-footer">
+        <div class="pd-t-4 pd-b-0 pd-x-20">
+            <div class="tx-10 tx-uppercase">
+                <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="#" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    <script src="assets/plugins/jquery/jquery.min.js"></script>
+    <script src="assets/plugins/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/plugins/popper/popper.js"></script>
+    <script src="assets/plugins/feather-icon/feather.min.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/pace/pace.min.js"></script>
+    <script src="assets/plugins/simpler-sidebar/jquery.simpler-sidebar.min.js"></script>
+    <script src="assets/js/jquery.slimscroll.min.js"></script>
+    <script src="assets/js/highlight.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+{%extends 'web/sbase.html'%} {%load static%} {%block headers%} {% load mathfilters %}
+
+<!-- Favicon -->
+{% endblock %}
+
+<style>
+    /* Style the buttons */
+    
+    .btn {
+        border: none;
+        outline: none;
+        padding: 10px 16px;
+        background-color: #f1f1f1;
+        cursor: pointer;
+    }
+    /* Style the active class (and buttons on mouse-over) */
+    
+    .active,
+    .btn:hover {
+        background-color: #666;
+        color: white;
+    }
+</style>
+
+<script>
+    var btnContainer = document.getElementById("myDIV");
+
+    // Get all buttons with class="btn" inside the container
+    var btns = btnContainer.getElementsByClassName("btn");
+
+    // Loop through the buttons and add the active class to the current/clicked button
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+
+            // If there's no active class
+            if (current.length > 0) {
+                current[0].className = current[0].className.replace(" active", "");
+            }
+
+            // Add the active class to the current/clicked button
+            this.className += " active";
+        });
+    }
+</script>
+
+<body>
+
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+
+            <!--Container fluid-->
+
+            <div class="single-channel-page">
+                <br>
+                <h6>Perfomance</h6><br>
+
+                <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="fas fa-tasks"></i>
+                    Converted: </button>
+
+
+                <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="fas fa-list"></i>
+                    Non-Converted: </button>
+
+
+                <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="far fa-check-circle"></i>
+                    Total Sale: </button>
+
+                <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="far fa-clock"></i> Total
+                    Time: </button>
+
+
+                <br><br>
+                <!--Main tab starts here-->
+                <div class="container">
+                    <ul class="nav nav-tabs">
+
+
+                        <li class="nav-link active">
+
+                            <a href="/perfomance">
+                                <button style="background-color: #ac0e41; color:white" class="btn">Last
+                                    Month</button></a>
+                        </li>
+
+                        <li class="nav-link">
+
+                            <a href="/perfsix">
+                                <button class="btn">6 Month</button></a>
+                        </li>
+
+                        <li class="nav-link">
+
+                            <a href="/perftwe">
+                                <button class="btn"> 12 Month</button></a>
+                        </li>
+
+
+                    </ul>
+                    <!--Main tab main menu end-->
+
+                    <!--Tab menu start-->
+
+                    <!--Setting menu start-->
+
+                    <div class="tab-content">
+
+
+                        <div class="tab-pane active" id="last">
+
+                            <!--Last Mnth Form-->
+
+                            <div id="content-wrapper">
+                                <div class="container-fluid">
+                                    <div class="video-block section-padding">
+                                        <div class="row">
+                                            <!-- Action Table Start -->
+                                            <!--================================-->
+                                            <div class="col-md-12 col-lg-12">
+                                                <div class="card mg-b-20">
+                                                    <div class="card-header">
+                                                        <h4 class="card-header-title">
+                                                            Last Month Data Table
+                                                        </h4>
+                                                        <div class="card-header-btn">
+                                                            <a href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse7" aria-expanded="true"><i
+                                                                    class="ion-ios-arrow-down"></i></a>
+                                                            <a href="#" data-toggle="refresh" class="btn card-refresh"><i
+                                                                    class="ion-android-refresh"></i></a>
+                                                            <a href="#" data-toggle="expand" class="btn card-expand"><i
+                                                                    class="ion-android-expand"></i></a>
+                                                            <a href="#" data-toggle="remove" class="btn card-remove"><i
+                                                                    class="ion-android-close"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body pd-0 collapse show" id="collapse7">
+                                                        <table class="table table-separated table-responsive-sm">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Service</th>
+                                                                    <th>Location</th>
+                                                                    <th>Category</th>
+                                                                    <th>Serrvie Name</th>
+                                                                    <th>Service Price</th>
+                                                                    <th>Days</th>
+                                                                    <th>Total</th>
+
+                                                                    <th class="text-center w-100px">Actions</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <th scope="row">1</th>
+                                                                    <td>Service</td>
+                                                                    <td>Location</td>
+                                                                    <td>Category</td>
+                                                                    <td>Serrvie Name</td>
+                                                                    <td>Service Price</td>
+                                                                    <td>Days</td>
+                                                                    <td>Total</td>
+                                                                    <td class="text-center table-actions">
+
+                                                                        <a class="table-action  mg-r-10" href="#"><i
+                                                                                class="fa fa-edit"></i></a>
+                                                                        <button class="postmagic" data-id={{user.id}} data-link='/deleteChannel' data-success='Channel has been deleted' data-failure='Cannot delete channel, has protected content data'><i
+                                                                                class="fa fa-trash"></i></button>
+
+
+                                                                    </td>
+                                                                </tr>
+
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <nav aria-label="Page navigation example">
+                                                    <ul class="pagination justify-content-center pagination-sm mb-0">
+                                                        {% if page_obj.has_previous %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="/viewchannels?page=1">&laquo;
+                                                                first</a>
+                                                        </li>
+                                                        {% endif %} {% if page_obj.has_previous %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="/viewchannels?page={{ page_obj.previous_page_number }}">previous</a>
+                                                        </li>
+                                                        {% endif %}
+                                                        <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                                        {% if page_obj.has_next %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="/viewchannels?page={{ page_obj.next_page_number }}">next</a>
+                                                        </li>{% endif %} {% if page_obj.has_next %}
+                                                        <li class="page-item">
+                                                            <a class="page-link" href="/viewchannels?page={{ page_obj.paginator.num_pages }}">last
+                                                                &raquo;</a>
+                                                        </li>{% endif %}
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <!--/ Action Table End -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--user profile end here-->
+
+
+
+
+                        <!-- Contact end -->
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row row-xs clearfix">
+
+            </div>
+        </div>
+        <!--/ Main Wrapper End -->
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+
+    <footer class="page-footer">
+        <div class="pd-t-4 pd-b-0 pd-x-20">
+            <div class="tx-10 tx-uppercase">
+                <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+
+</body>
+
+{% endblock %}

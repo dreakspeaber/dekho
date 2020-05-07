@@ -1,0 +1,49 @@
+{%extends 'web/lbase.html'%} {%load static%} {%block headers%}
+
+
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keyword" content="">
+<meta name="author" content="" />
+
+<title>Dekho Andaman- Login</title>
+{% endblock %}
+
+
+<body>
+    {%block body%} 
+
+
+    <div class="ht-100v d-flex">
+        <div class="card shadow-none pd-20 mx-auto wd-300 text-center bd-1 align-self-center">
+            <a> <img style="width: 100px;" src={% static "/web/assets/images/logo.png" %}></a>
+            <h4 class="card-title mt-3 text-center">Sign In</h4>
+            <p class="text-center">Sign in to your account</p>
+
+
+            <form method="post" accept="#">
+                {% csrf_token %}
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text pd-x-9"> <i class="fa fa-user"></i> </span>
+                    </div>
+                 {{form.name}}
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    {{form.password}}
+                </div>
+                <div class="form-group">
+                    <button type="submit" style="background-color:#ac0e41	; border-color: white;" class="btn btn-custom-primary btn-block tx-13 hover-white"> Login </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {%endblock%} {%block script%}
+</body>
+
+{% endblock %}

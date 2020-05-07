@@ -1,0 +1,283 @@
+{%extends 'web/sbase.html'%} {%load static%} {%block headers%} {% load mathfilters %} {% endblock %}
+
+
+<body>
+
+    {%block body%}
+
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+            <br>
+            
+            
+            {%if id is 0%}
+            <h6>Performance</h6><br>
+            {%endif%}
+            
+            
+            {%if id is 1%}
+            <h6>Converted Sales</h6><br>
+            {%endif%}
+            
+
+
+            
+            {%if id is 2%}
+            <h6>Non-Converted Sales</h6><br>
+            {%endif%}
+            
+
+            {%if id is not 2%}
+            <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="fas fa-list"></i>
+                Converted: {{converted}} </button>
+                {%endif%}
+                {%if id is not 1%}
+            <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="fas fa-list"></i>
+                Non-Converted: {{non_converted}} </button>
+                {%endif%}
+
+            <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="far fa-check-circle"></i>
+                Total Sale: {{totalsale}}</button>
+
+            <button style="background-color: #d5d5d5; color:#333" class="btn"><i class="far fa-clock"></i> 
+                Joining Time: {{profile.time}} </button> <br> <br>
+
+            <!--/ Breadcrumb End -->
+
+
+
+            <div class="container">
+                <ul class="nav nav-tabs">
+
+
+                    <li class="nav-link active">
+                        {%if id is 0%}
+                        <a href="/0/servicesalepage">
+                            <button style="background-color: #ac0e41; color:white" class="btn">Last
+                                Month</button></a>
+                        {%endif%}
+                        {%if id is 1%}
+                        <a href="/1/servicesalepage">
+                            <button style="background-color: #ac0e41; color:white" class="btn">Last
+                                Month</button></a>
+                        {%endif%}
+                        {%if id is 2%}
+                        <a href="/2/servicesalepage">
+                            <button style="background-color: #ac0e41; color:white" class="btn">Last
+                                Month</button></a>
+                        {%endif%}
+                    </li>
+
+                    <li class="nav-link">
+
+                        <a href="#">
+                            <button class="btn">6 Month</button></a>
+                    </li>
+
+                    <li class="nav-link">
+
+                        <a href="#">
+                            <button class="btn"> 12 Month</button></a>
+                    </li>
+
+
+                </ul>
+                <!-- Action Table Start -->
+                <!--================================-->
+                <div class="col-md-12 col-lg-12">
+                    <div class="card mg-b-20">
+                        <div class="card-header">
+                            <h4 class="card-header-title">
+                                Data Table
+                            </h4>
+                            <div class="card-header-btn">
+                                <a href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse7" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                                <a href="#" data-toggle="refresh" class="btn card-refresh"><i
+                                        class="ion-android-refresh"></i></a>
+                                <a href="#" data-toggle="expand" class="btn card-expand"><i
+                                        class="ion-android-expand"></i></a>
+                                <a href="#" data-toggle="remove" class="btn card-remove"><i
+                                        class="ion-android-close"></i></a>
+                            </div>
+                        </div>
+                        <div class="card-body pd-0 collapse show" id="collapse7">
+                            <table class="table table-separated table-responsive-sm">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Customer Name</th>
+                                        <th>Price</th>
+                                        <th>Date</th>
+                                        {%if id is 0%}
+                                        <th>has_converted</th>
+                                        {%endif%}
+                                        <th>View</th>
+                                        {%if id is 2%}
+                                        <th>Actions</th>
+                                        {%endif%}
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {%for sale in object_list%}
+                                 
+                                    <tr>
+                                        {% with ofset=page_obj.number|sub:1|mul:10 %}
+                                        <th scope="row">{{ forloop.counter|add:ofset }}</th>
+                                        {% endwith %}
+                                        <td>{{sale.customer}}</td>
+                                        <td>{{sale.get_price}}</td>
+                                        <td>{{sale.time}}</td>
+                                        {%if id is 0%}
+                                        {%if sale.has_closed%}
+                                        <td>Yes</td>
+                                        {%elif not sale.has_closed%}
+                                        <td>No</td>
+                                        {%endif%}
+                                        {%endif%}
+                                        <td>
+                                            <a href="{% url 'pdf' id=sale.id %}"><i class="far fa-eye"></i></a>
+                                        </td>
+                                        <td class="text table-actions">
+                                            {%if id is 2%}
+                                            <a class="table-action  mg-r-10" href="{% url 'salesform' id=sale.id %}"><i class="fa fa-edit"></i></a>
+                                            <button class="postmagic" data-id={{sale.id}} data-link='/approve' data-success='The sale has been added to the converted list' data-failure='Please try again later, network issues'><i class="far fa-check-circle"></i></button>
+                                            <button class="postmagic" data-id={{sale.id}} data-link='/deletesales' data-success='Has been deleted' data-failure='Please try again later, network issues'><i
+                                                    class="fa fa-trash"></i></button>
+                                            {%endif%}
+
+                                        </td>
+                                 
+
+                                    </tr>
+                                    {%endfor%}
+
+                                </tbody>
+                            </table>
+                        </div>
+                        {%if id is 0%}
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center pagination-sm mb-0">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/0/servicesalepage?page=1" >&laquo;
+                                        first</a>
+                                </li>
+                                {% endif %} {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/0/servicesalepage?page={{ page_obj.previous_page_number }}">previous</a>
+                                </li>
+                                {% endif %}
+                                <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/0/servicesalepage?page={{ page_obj.next_page_number }}">next</a>
+                                </li>{% endif %} {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/0/servicesalepage?page={{ page_obj.paginator.num_pages }}">last
+                                        &raquo;</a>
+                                </li>{% endif %}
+                            </ul>
+                        </nav>
+                        {%endif%}
+                        {%if id is 1%}
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center pagination-sm mb-0">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/1/servicesalepage?page=1" >&laquo;
+                                        first</a>
+                                </li>
+                                {% endif %} {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/1/servicesalepage?page={{ page_obj.previous_page_number }}">previous</a>
+                                </li>
+                                {% endif %}
+                                <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/1/servicesalepage?page={{ page_obj.next_page_number }}">next</a>
+                                </li>{% endif %} {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/1/servicesalepage?page={{ page_obj.paginator.num_pages }}">last
+                                        &raquo;</a>
+                                </li>{% endif %}
+                            </ul>
+                        </nav>
+                        {%endif%}
+                        {%if id is 2%}
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination justify-content-center pagination-sm mb-0">
+                                {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/2/servicesalepage?page=1" >&laquo;
+                                        first</a>
+                                </li>
+                                {% endif %} {% if page_obj.has_previous %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/2/servicesalepage?page={{ page_obj.previous_page_number }}">previous</a>
+                                </li>
+                                {% endif %}
+                                <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/2/servicesalepage?page={{ page_obj.next_page_number }}">next</a>
+                                </li>{% endif %} {% if page_obj.has_next %}
+                                <li class="page-item">
+                                    <a class="page-link" href="/2/servicesalepage?page={{ page_obj.paginator.num_pages }}">last
+                                        &raquo;</a>
+                                </li>{% endif %}
+                            </ul>
+                        </nav>
+                        {%endif%}
+                    </div>
+
+                </div>
+                <!--/ Action Table End -->
+                <div class="row row-xs clearfix">
+
+                </div>
+            </div>
+        </div>
+        <!--/ Main Wrapper End -->
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+
+    <footer class="page-footer">
+        <div class="pd-t-4 pd-b-0 pd-x-20">
+            <div class="tx-10 tx-uppercase">
+                <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+</body>
+
+{% endblock %}

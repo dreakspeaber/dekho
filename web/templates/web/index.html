@@ -1,0 +1,143 @@
+{%extends 'web/dbase.html'%} {%load static%} {%block headers%} {% load mathfilters %}
+
+<!-- Favicon -->
+{% endblock %}
+
+</head>
+
+<body>
+
+    {%block body%}
+
+
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!-- Main Wrapper -->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+            <div class="pageheader pd-t-25 pd-b-35">
+                <div class="pd-t-5 pd-b-5">
+                    <h1 class="pd-0 mg-0 tx-20">New Users</h1>
+                </div>
+
+            </div>
+            <!--/ Breadcrumb End -->
+            <!-- Action Table Start -->
+            <!--================================-->
+            <div class="col-md-12 col-lg-12">
+                <div class="card mg-b-20">
+                    <div class="card-header">
+                        <h4 class="card-header-title">
+                            Action Table
+                        </h4>
+                        <div class="card-header-btn">
+                            <a href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse7" aria-expanded="true"><i class="ion-ios-arrow-down"></i></a>
+                            <a href="#" data-toggle="refresh" class="btn card-refresh"><i
+                                    class="ion-android-refresh"></i></a>
+                            <a href="#" data-toggle="expand" class="btn card-expand"><i
+                                    class="ion-android-expand"></i></a>
+                            <a href="#" data-toggle="remove" class="btn card-remove"><i
+                                    class="ion-android-close"></i></a>
+                        </div>
+                    </div>
+                    <div class="card-body pd-0 collapse show" id="collapse7">
+                        <table class="table table-separated table-responsive-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>E-mail</th>
+                                    <th>Location</th>
+                                    <th class="text-center w-100px">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>{Name}</td>
+                                    <td>{Phone}</td>
+                                    <td>{E-mail}</td>
+                                    <td>{Location}</td>
+                                    <td class="text-center table-actions">
+                                        <a class="table-action  mg-r-10" href="#"><i class="fa fa-edit"></i></a>
+                                        <button class="postmagic" data-id={{user.id}} data-link='/deleteChannel' data-success='Channel has been deleted' data-failure='Cannot delete channel, has protected content data'><i
+                                                class="fa fa-trash"></i></button>
+
+
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center pagination-sm mb-0">
+                        {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="/viewchannels?page=1">&laquo; first</a>
+                        </li>
+                        {% endif %} {% if page_obj.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="/viewchannels?page={{ page_obj.previous_page_number }}">previous</a>
+                        </li>
+                        {% endif %}
+                        <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                        {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="/viewchannels?page={{ page_obj.next_page_number }}">next</a>
+                        </li>{% endif %} {% if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="/viewchannels?page={{ page_obj.paginator.num_pages }}">last
+                                &raquo;</a>
+                        </li>{% endif %}
+                    </ul>
+                </nav>
+
+            </div>
+            <!--/ Action Table End -->
+
+            <div class="row row-xs clearfix">
+
+            </div>
+        </div>
+        <!--/ Main Wrapper End -->
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+
+    <footer class="page-footer">
+        <div class="pd-t-4 pd-b-0 pd-x-20">
+            <div class="tx-10 tx-uppercase">
+                <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--/ Page Footer End -->
+    </div>
+    <!--/ Page Content End -->
+    </div>
+    <!--/ Page Container End -->
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+    <!--================================-->
+    <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+
+    <!--================================-->
+    <!-- Footer Script -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+
+</body>
+
+{% endblock %}

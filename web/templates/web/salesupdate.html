@@ -1,0 +1,176 @@
+{%extends 'web/dbase.html'%} {%load static%} {%block headers%} {% endblock %}
+
+
+<body>
+    {%block body%}
+
+
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner">
+        <!--================================-->
+        <!-- Main Wrapper Start -->
+        <!--================================-->
+        <div id="main-wrapper">
+            <!--================================-->
+            <!-- Breadcrumb Start -->
+            <!--================================-->
+
+            <!--/ Breadcrumb End -->
+
+
+            <!--Container fluid-->
+            <br><br>
+            <div id="content-wrapper">
+                <div class="container-fluid upload-details">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="main-title">
+                                <h6>Sales Report</h6>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="imgplace"></div>
+                        </div>
+
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="osahan-form">
+                                <div class="row">
+                                    <div class="col-lg-12">
+
+                                        <!-- Action Table Start -->
+                                        <!--================================-->
+                                        <div class="col-md-12 col-lg-12">
+                                            <div class="card mg-b-20">
+                                                <div class="card-header">
+                                                    <h4 class="card-header-title">
+                                                        Data Table
+                                                    </h4>
+                                                    <div class="card-header-btn">
+                                                        <a href="#" data-toggle="collapse" class="btn card-collapse" data-target="#collapse7" aria-expanded="true"><i
+                                                                class="ion-ios-arrow-down"></i></a>
+                                                        <a href="#" data-toggle="refresh" class="btn card-refresh"><i
+                                                                class="ion-android-refresh"></i></a>
+                                                        <a href="#" data-toggle="expand" class="btn card-expand"><i
+                                                                class="ion-android-expand"></i></a>
+                                                        <a href="#" data-toggle="remove" class="btn card-remove"><i
+                                                                class="ion-android-close"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="card-body pd-0 collapse show" id="collapse7">
+                                                    <table class="table table-separated table-responsive-sm">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>#</th>
+                                                                <th>Executive Name</th>
+                                                                <th>Phone Number</th>
+
+
+                                                                <th class="text">Actions</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <th scope="row">1</th>
+
+                                                                <td>{exename}</td>
+                                                                <td>{phone}</td>
+
+
+                                                                <td class="text table-actions">
+                                                                    <a href="/nonconvert"> <button class="btn btn-custom-primary">Sales</button>
+
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                            </div>
+                                            <nav aria-label="Page navigation example">
+                                                <ul class="pagination justify-content-center pagination-sm mb-0">
+                                                    {% if page_obj.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="/viewchannels?page=1">&laquo;
+                                                            first</a>
+                                                    </li>
+                                                    {% endif %} {% if page_obj.has_previous %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="/viewchannels?page={{ page_obj.previous_page_number }}">previous</a>
+                                                    </li>
+                                                    {% endif %}
+                                                    <li class="page-item"> <a class="page-link" href="#">{{ page_obj.number }}</a></li>
+                                                    {% if page_obj.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="/viewchannels?page={{ page_obj.next_page_number }}">next</a>
+                                                    </li>{% endif %} {% if page_obj.has_next %}
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="/viewchannels?page={{ page_obj.paginator.num_pages }}">last
+                                                            &raquo;</a>
+                                                    </li>{% endif %}
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                        <!--/ Action Table End -->
+
+                                    </div>
+
+
+                                    </form>
+                                    <hr>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.container-fluid -->
+
+
+                        <div class="row row-xs clearfix">
+
+
+                        </div>
+                    </div>
+                    <!--/ Main Wrapper End -->
+                </div>
+
+                <br><br><br><br><br><br><br>
+                <!--/ Page Inner End -->
+                <!--================================-->
+                <!-- Page Footer Start -->
+                <!--================================-->
+                <footer class="page-footer">
+                    <div class="pd-t-4 pd-b-0 pd-x-20">
+                        <div class="tx-10 tx-uppercase">
+                            <p class="pd-y-10 mb-0">Copyright&copy; 2019 | All rights reserved. | Developed By
+                                <a href="http://sketchappsolutions.com" target="_blank">Sketch app</a></p>
+                        </div>
+                    </div>
+                </footer>
+                <!--/ Page Footer End -->
+            </div>
+            <!--/ Page Content End  -->
+        </div>
+        <!--/ Page Container End -->
+        <!--================================-->
+        <!-- Scroll To Top Start-->
+        <!--================================-->
+        <a href="" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+        <!--/ Scroll To Top End -->
+        <!--================================-->
+
+
+        <!--================================-->
+        <!-- Footer Script -->
+        <!--================================-->
+
+        {%endblock%} {%block script%}
+
+
+</body>
+{% endblock %}

@@ -1,0 +1,440 @@
+{%extends 'web/sbase.html'%} {%load static%} {%block headers%} {% load mathfilters %}
+<link href={% static "web/pdf/css/style.css" %} rel="stylesheet">
+<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Libraries CSS Files -->
+<link href={% static "web/pdf/lib/font-awesome/css/font-awesome.min.css" %} rel="stylesheet">
+<link href={% static "web/pdf/lib/animate/animate.min.css" %} rel="stylesheet">
+<link href={% static "web/pdf/lib/ionicons/css/ionicons.min.css" %} rel="stylesheet">
+<link href={% static "web/pdf/lib/owlcarousel/assets/owl.carousel.min.css" %} rel="stylesheet">
+<link href={% static "web/pdf/lib/lightbox/css/lightbox.min.css" %} rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhaina+2&display=swap" rel="stylesheet">
+<!-- Favicon -->
+{% endblock %}
+
+
+
+<body>
+
+    {%block body%}
+    <!--================================-->
+    <!-- Page Inner Start -->
+    <!--================================-->
+    <div class="page-inner pd-0-force mg-0-force ht-100vh bg-white">
+        <div class="row no-gutters pd-b-20 pd-t-15 wd-100p clearfix">
+            <!--================================-->
+            <!--  Invoice Start -->
+
+
+            <img src={% static "web/pdf/img/logo.png" %} alt="">
+            <!--================================-->
+            <div class="card pd-10 wd-100p m-auto">
+                <div class="card-body pd-0 printing-area">
+                    <div class="row">
+
+
+                        <div class="col-lg-12  text-center">
+                            <h4 style="font-weight: 600; color:#333; font-family: 'Baloo Bhaina 2', cursive;
+
+                            ">Andaman Tour Package ({{sale.heading}})</h3>
+
+                        </div>
+                        <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp">
+                            <address>
+                                <strong style="color: #333">#Invoice: {{sale.id}}</strong> <br>
+                                <strong style="color: #333">{{sale.customer}}</strong><br>
+
+
+                            </address>
+                        </div>
+
+
+
+
+                        <section id="services" class="section-bg">
+                            <div class="row">
+                               
+                               {% if sale.activities1.all.exists %}
+                                <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <h4 class="title"><a href="">Day 1 at {{sale.loc1}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities1.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                               {%endif%}
+                               {% if sale.activities2.all.exists %}
+                                <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-bookmarks-outline" style="color: #e9bf06;"></i></div>
+                                        <h4 class="title"><a href="">Day 2 at {{sale.loc2}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities2.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                                {%endif%}
+                                {% if sale.activities3.all.exists %}
+                                <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-paper-outline" style="color: #3fcdc7;"></i>
+                                        </div>
+                                        <h4 class="title"><a href="">Day 3 at {{sale.loc3}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities3.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                                {%endif%}
+                                {% if sale.activities4.all.exists %}
+                                <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-speedometer-outline" style="color:#41cf2e;"></i></div>
+                                        <h4 class="title"><a href="">Day 4 at {{sale.loc4}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities4.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                                {%endif%}
+                                {% if sale.activities5.all.exists %}
+                                <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-world-outline" style="color: #d6ff22;"></i>
+                                        </div>
+                                        <h4 class="title"><a href="">Day 5 at {{sale.loc5}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities5.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                                {%endif%}
+                                {% if sale.activities6.all.exists %}
+                                <div class="col-md-6 col-lg-5 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-clock-outline" style="color: #4680ff;"></i>
+                                        </div>
+                                        <h4 class="title"><a href="">Day 6 at {{sale.loc6}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities6.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                                {%endif%}
+                                {% if sale.activities7.all.exists %}
+                                <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                                    <div class="box">
+                                        <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                        <h4 class="title"><a href="">Day 7 at {{sale.loc7}}</a></h4>
+                                        <p class="description">
+                                            
+                                               
+                                            <ul>
+                                                {% for act in sale.activities7.all %}
+                                                <li>{{act.render_tag}}</li>
+                                               
+                                            {% endfor %}
+                                            </ul>
+    
+                                        </p>
+                                    </div>
+                                </div>
+                               {%endif%}
+                               {% if sale.activities8.all.exists %}
+                               <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                                   <div class="box">
+                                       <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                       <h4 class="title"><a href="">Day 8 at {{sale.loc8}}</a></h4>
+                                       <p class="description">
+                                           
+                                              
+                                           <ul>
+                                               {% for act in sale.activities8.all %}
+                                               <li>{{act.render_tag}}</li>
+                                              
+                                           {% endfor %}
+                                           </ul>
+   
+                                       </p>
+                                   </div>
+                               </div>
+                              {%endif%}
+                              {% if sale.activities9.all.exists %}
+                              <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                                  <div class="box">
+                                      <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                      <h4 class="title"><a href="">Day 9 at {{sale.loc9}}</a></h4>
+                                      <p class="description">
+                                          
+                                             
+                                          <ul>
+                                              {% for act in sale.activities9.all %}
+                                              <li>{{act.render_tag}}</li>
+                                             
+                                          {% endfor %}
+                                          </ul>
+  
+                                      </p>
+                                  </div>
+                              </div>
+                             {%endif%}
+                             {% if sale.activities10.all.exists %}
+                             <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp" data-wow-duration="1.4s">
+                                 <div class="box">
+                                     <div class="icon"><i class="ion-ios-analytics-outline" style="color: #ff689b;"></i></div>
+                                     <h4 class="title"><a href="">Day 10 at {{sale.loc10}}</a></h4>
+                                     <p class="description">
+                                         
+                                            
+                                         <ul>
+                                             {% for act in sale.activities10.all %}
+                                             <li>{{act.render_tag}}</li>
+                                            
+                                         {% endfor %}
+                                         </ul>
+ 
+                                     </p>
+                                 </div>
+                             </div>
+                            {%endif%}
+                            </div>
+                        </section>
+                        <!-- #services -->
+                    </div>
+                    <br>
+                    <div class="col-lg-12  text-center"><i style="font-size: 18px; color:#FF6347" class="fas fa-ban"></i>
+                        <h6 style="font-weight: 600; color:#333;">Cancellation and Refund Policy</h3>
+                            <p style="font-weight: 600; " class="text-justify">
+                                Please find the cancellation policy below. Please note that NO Cancellation requests will be taken on Sundays, Public Holidays and Cancellation done after office hours. In Case a cancellation request is send after office hours then it will be considered
+                                in the next day.
+                            </p>
+                            <div class="col-lg-12 text-center">
+                                <ul>
+                                    <li class="text-justify">
+                                        50% Cancellation fee will be charged for cancellation received less than 7 days before the arrival date.
+                                    </li>
+                                    <li class="text-justify">75% Cancellation fee will be charged for cancellation received less than 120 Hours before the arrival time.
+                                    </li>
+                                    <li class="text-justify"> No refund for cancellation received before 72 Hours before the arrival time.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p style="font-weight: 600;" class="text-justify"> For Trips/Activities1. Full refund upon cancellation received before 10 Days of arrival (Terms and conditions applicable as per the criteria) </p>
+
+                            <div class="col-lg-12   ">
+
+                                <ul>
+                                    <li class="text-justify">
+                                        50% Cancellation fee will be charged for cancellation received less than 7 Days before the arrival date.
+                                    </li>
+                                    <li class="text-justify">75% Cancellation fee will be charged for cancellation received less than 120 Hours before the arrival time.
+                                    </li>
+                                    <li class="text-justify"> No refund for cancellation received before 72 Hours before the arrival time.
+                                    </li>
+                                    <li class="text-justify">500 Rupees will be charged per cancellation of the ticket.
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <p style="font-weight: 600;" class="text-justify"> For Hotels Cancellation as per hotel policy, we do not charge any extra. Usually the hotel cancellation policy at the islands is as under: </p>
+
+                            <div class="col-lg-12">
+
+                                <ul>
+                                    <li class="text-justify">
+                                        If cancelled from 0 days to 7 days before the check-in date 100% of the booking amount will be charged
+                                    </li>
+                                    <li class="text-justify">If cancelled from 7 days to 20 days before the check-in date 50% of the booking amount will be charged
+                                    </li>
+                                    <li class="text-justify"> If cancelled from 20 days to 30 days before the check-in date 25% of the booking amount will be charged
+                                    </li>
+                                    <li class="text-justify">500 Rupees will be charged per cancellation of the ticket.
+                                    </li>
+                                    <li class="text-justify">If cancelled from 30 days or more before the check-in date 15% of the booking amount will be charged</li>
+                                    <li class="text-justify">No refund for cancellation received on bookings from 15th Dec to 15th Jan</li>
+                                    <li class="text-justify">No refunds for unused nights or early check-out</li>
+                                    <li class="text-justify">The Hotel is not responsible for room cancellation for the cancellation of flight / ferry</li>
+                                    <li class="text-justify">The Hotel is not responsible for cancellation of reservation due to climatic changes</li>
+
+                                    <br>
+                                    <p style="font-style: italic;" class="text-justify">Peak Time in the Andaman Islands there is a peak season time from 1-December to 31-January. During this time NO Cancellations are allowed. This is applicable on all hotels, activities, ferry and transport. We know that
+                                        this sounds absurd, however due to high influx of travelers and very minimal availability of Hotels, Activities, transport and ferry such measures are taken. Thank you for the cooperation.</p>
+
+                                </ul>
+                            </div>
+
+                            <p style="font-weight: 600;" class="text-justify"> For Packages with Flight for our limited-edition tour packages with flight </p>
+                            <div class="col-lg-12   ">
+                                <ul>
+                                    <li class="text-justify">
+                                        No Refund if the flight gets cancelled / Delayed /Rescheduled
+                                    </li>
+                                    <li class="text-justify">No refund for cancellation of the flight tickets at any time after the booking is made
+                                    </li>
+                                    <li class="text-justify"> No refund for the trip due to delay/cancellation/rescheduled in the flight timings, however if the guest manages to come at his own cost then the trip could be done as per the itinerary agreed upon. However, no refund
+                                        shall be given for the day missed
+                                    </li>
+
+                                </ul>
+                            </div>
+
+
+                            <p style="font-weight: 600;" class="text-justify"> For All Other Travel Packages (Honeymoon, Adventure, Family and Customized) </p>
+                            <div class="col-lg-12   ">
+                                <ul>
+                                    <li class="text-justify">
+                                        Cancellation Charge of Rupees 3500/- Per
+                                    </li>
+                                    <li class="text-justify">Person will be charged at any time after the Booking is confirmed
+                                    </li>
+                                    <li class="text-justify"> No refund, if Cancellation received less than 10 Days before arrival
+                                    </li>
+                                    <li class="text-justify">75% of the total package amount will be charged, if Cancellation received between 11 - 20 Days before arrival</li>
+                                    <li class="text-justify"> 50% of the total package amount will be charged, if Cancellation received between 21 - 30 Days before arrival be considered in the next day</li>
+
+                                </ul>
+                            </div>
+                            <br>
+
+                            <h6 class="text-left" style="font-weight: 500; font-size:14px; color:#333;">
+                                <i class="fas fa-rupee-sign"></i> Mode of Payment
+                            </h6>
+                            <ul>
+                                <li class="text-justify">
+                                    For advance booking we need 50% of the total package amount
+                                </li>
+                                <li class="text-justify"> And the 30% of the total package amount should be paid 120 hours before the arrival
+                                </li>
+                                <li class="text-justify">After the arrival 20% of the total package amount should be paid on the first day
+                                </li>
+                            </ul>
+                            </h5>
+                            <br>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-5 offset-lg-1 wow bounceInUp">
+                            <address>
+
+
+
+                                <h6 class="text-justify"><i class="fas fa-phone-square-alt"></i> CONTACT </h6>
+                                <br>
+                                <p class="text-justify"> Ward No.2, Near Hyundai Showrom,</p>
+
+                                <p class="text-justify"> Lillypur, Port Balir</p>
+                                <p class="text-justify"> Andaman And Nicobar Islands</p>
+                                <p class="text-justify"> <abbr title="Email">E:</abbr> book@dekhoandaman.com</p>
+
+                                <p class="text-justify"> <abbr title="Phone">P:</abbr> + 91 7063950125</p>
+
+                                <p class="text-justify"> <abbr title="Phone">F:</abbr> +91 9531827910</p>
+                            </address>
+                        </div>
+
+                        <div class="col-md-6 col-lg-5 text-md-right">
+                            <address>
+                                <h6 class="text-right"><i class="fas fa-university"></i>
+                                    ACCOUNT DETAILS:</h6>
+                                <p class="text-right">Dekho Andaman</p>
+                                <p class="text-right">IDBI Bank</p>
+                                <p class="text-right">Account Number: 1498102000006170</p>
+                                <p class="text-right">IFSC Code: IBKL0001498</p>
+
+                            </address>
+
+                        </div>
+                        <div class="col-md-4 ml-md-auto text-center">
+                            <br>
+                            <span class="bt-1 d-inline-block pt-10 pl-40">
+                            </span>
+                            <br><br>
+                            <p class="tx-bold">Grand Total: <span class="tx-20 tx-gray-900">{{sale.get_price}}</span></p>
+                            <br>
+                        </div>
+                    </div>
+
+                    <div class="text-right mg-y-20">
+
+                        <button type="button" class="btn btn-primary mg-t-5" onclick="javascript:window.print();"><i
+                                class="fa fa-print"></i> Print</button>
+                    </div>
+                </div>
+            </div>
+            <!--/ Invoice End -->
+        </div>
+    </div>
+    <!--/ Page Inner End -->
+    <!--================================-->
+    <!-- Page Footer Start -->
+    <!--================================-->
+
+    <!--/ Page Footer End -->
+
+    <!--================================-->
+    <!-- Scroll To Top Start-->
+
+
+
+    <!--================================-->
+    <a href="#" data-click="scroll-top" class="btn-scroll-top fade"><i class="fa fa-arrow-up"></i></a>
+    <!--/ Scroll To Top End -->
+    <!--================================-->
+    {%endblock%} {%block script%}
+
+
+</body>
+
+{% endblock %}
